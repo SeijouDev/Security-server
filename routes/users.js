@@ -6,13 +6,19 @@ const User = require('../models/user');
 router.get('/', (req, res) => {
   // res.json({status: 200, message: 'Connected now!'});
   User.findAll( (err,data) => {
-    res.status(200).json(data);
+    if(err)
+      res.status(500).json(err);    
+    else
+      res.status(200).json(data);
   });
 });
 
 router.get('/:id', (req, res) => {
   User.findOne( req.params.id , (err,data) => {
-    res.status(200).json(data);
+    if(err)
+      res.status(500).json(err);    
+    else
+      res.status(200).json(data);
   });
 });
 
@@ -38,6 +44,22 @@ router.post('/create', (req,res) => {
         success: false,
         msg: 'Error creating user :('
       });
+    }
+  });
+});
+
+router.post('/login', (req, res) => {
+  let user = {email: req.body.email, password: req.body.password};
+  User.login( user , (err, data) => {
+    if(err)
+      res.status(500).json(err);
+    else {
+      if(data.length == 1) {
+        res.status(200).json({user: data[0]})
+      }
+      else {
+        res.status(200).json({msg: 'Not registered!'});
+      }
     }
   });
 });
