@@ -1,7 +1,6 @@
 var express = require('express');
+var User = require('../models/userEntity');
 var router = express.Router();
-
-const User = require('../models/user');
 
 router.get('/', (req, res) => {
   // res.json({status: 200, message: 'Connected now!'});
@@ -23,7 +22,6 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/create', (req,res) => {
-  console.log(req.body);
   let user = {
     id: null,
     name: req.body.name,
@@ -32,18 +30,26 @@ router.post('/create', (req,res) => {
   }
 
   User.insert(user, (err, data) => {
-    if(data && data.result) {
-      res.json({
-        success: true,
-        msg: 'User inserted!',
-        data: data
-      });
+    if(err) {
+      if(err.code = 23505)
+        res.status(200).json({ msg: 'User already exists!'});      
+      else
+        res.status(500).json(err);
     }
     else {
-      res.status(500).json({
-        success: false,
-        msg: 'Error creating user :('
-      });
+      if(data && data.result) {
+        res.status(200).json({
+          msg: 'User inserted!',
+          data: data
+        });
+      }
+      else {
+        res.status(500).json({
+          success: false,
+          msg: 'Error creating user :(',
+          err: err
+        });
+      }
     }
   });
 });

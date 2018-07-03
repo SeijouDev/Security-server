@@ -44,12 +44,10 @@ let userModel = {
     insert: (user, callback) => {
         if(client) {
             client.query("INSERT INTO users (name,email, password) VALUES ($1,$2,$3) RETURNING id;", [user.name, user.email, user.password], (err, result) => {
-                if(err) {
-                    throw err;
-                }
-                else {
-                    callback(null, { result: result.rows[0].id});
-                }
+                if(err)
+                    callback(err, null);                
+                else
+                    callback(null, { result: result.rows[0].id});                
             });
         }
     },
