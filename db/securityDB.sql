@@ -35,3 +35,16 @@ CREATE TABLE users (
 
 INSERT INTO users (name,email, password) 
 VALUES ('Marlon Castillo','alejo.1395@hotmail.com', '123456');
+
+
+create table reports(
+id SERIAL PRIMARY KEY,
+address VARCHAR(45) NOT NULL,
+latitude VARCHAR(45) NOT NULL,	
+longitude VARCHAR(45) NOT NULL,
+date date,
+hour VARCHAR(45) NOT NULL,
+id_user int,
+state VARCHAR(45) NOT NULL,
+FOREIGN KEY (id_user) REFERENCES users(id)
+);	

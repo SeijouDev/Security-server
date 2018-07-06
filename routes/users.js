@@ -3,7 +3,6 @@ var User = require('../models/userEntity');
 var router = express.Router();
 
 router.get('/', (req, res) => {
-  // res.json({status: 200, message: 'Connected now!'});
   User.findAll( (err,data) => {
     if(err)
       res.status(500).json(err);    
