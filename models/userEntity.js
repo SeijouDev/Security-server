@@ -1,8 +1,10 @@
 const pg = require('pg');
 const { Client } = require('pg');
 const client = new Client({
-    connectionString: "postgres://jhkhtqqykdvqau:903cf10387afabb757c8bf42baae3ad3ac6de647dfd721f642e622a18e859fdf@ec2-54-197-233-123.compute-1.amazonaws.com:5432/d1kr6oe2l4lp9f",
-    ssl: true
+    //connectionString: "postgres://jhkhtqqykdvqau:903cf10387afabb757c8bf42baae3ad3ac6de647dfd721f642e622a18e859fdf@ec2-54-197-233-123.compute-1.amazonaws.com:5432/d1kr6oe2l4lp9f",
+    //ssl: true
+    connectionString: "postgres://nelson:1234@localhost:5432/securitydb",
+    ssl: false
 });
 
 client.connect().then( ()=> {
@@ -20,7 +22,7 @@ let userModel = {
                 if(err) 
                     callback(err, null);                
                 else 
-                    callback(null, result.rows);                
+                    callback(null, result.rows);
             });
         }
     },
@@ -28,10 +30,10 @@ let userModel = {
     findOne: (id, callback) => {
         if(client) {
             client.query('SELECT id, name, email, password FROM users WHERE id = $1;' , [id] , (err, result) => {
-                if(err)
+                if(err) 
                     callback(err, null);                
-                else
-                    callback(null, result.rows);                
+                else 
+                    callback(null, result.rows);
             });
         }
     },
@@ -58,7 +60,4 @@ let userModel = {
         }
     }
 };
-
-
-
 module.exports = userModel;
