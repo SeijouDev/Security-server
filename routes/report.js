@@ -4,7 +4,25 @@ var router = express.Router();
 var User = require('../models/userEntity');
 
 router.get('/', (req, res) => {
-    User.findAll((err, data) => {
+    Report.findAll((err, data) => {
+        if (err)
+            res.status(500).json(err);
+        else
+            res.status(200).json(data);
+    });
+});
+
+router.get('/user/:id', (req, res) => {
+    Report.findOne(req.params.id, (err, data) => {
+        if (err)
+            res.status(500).json(err);
+        else
+            res.status(200).json(data);
+    });
+});
+
+router.get('/type/:id', (req, res) => {
+    Report.findOne(req.params.id, (err, data) => {
         if (err)
             res.status(500).json(err);
         else

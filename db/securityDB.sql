@@ -40,11 +40,13 @@ VALUES ('Marlon Castillo','alejo.1395@hotmail.com', '123456');
 create table reports(
 id SERIAL PRIMARY KEY,
 address VARCHAR(45) NOT NULL,
-latitude VARCHAR(45) NOT NULL,	
-longitude VARCHAR(45) NOT NULL,
-date date,
+latitude decimal(11,8) NOT NULL,	
+longitude decimal(11,8) NOT NULL,
+date VARCHAR(45) NOT NULL,
 hour VARCHAR(45) NOT NULL,
 id_user int,
-state VARCHAR(45) NOT NULL,
+state bool NOT NULL,
+type int,
 FOREIGN KEY (id_user) REFERENCES users(id)
 );	
+/*1. Robo con arma, 2. Consumo de sustancias psicoactivas 
