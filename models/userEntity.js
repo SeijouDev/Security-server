@@ -17,12 +17,10 @@ let userModel = {
     findAll: (callback) => {
         if(client) {
             client.query('SELECT id, name, email, password FROM users;' , (err, result) => {
-                if(err) {
-                    throw(err);
-                }
-                else {
-                    callback(null, result.rows);
-                }
+                if(err) 
+                    callback(err, null);                
+                else 
+                    callback(null, result.rows);                
             });
         }
     },
@@ -30,12 +28,10 @@ let userModel = {
     findOne: (id, callback) => {
         if(client) {
             client.query('SELECT id, name, email, password FROM users WHERE id = $1;' , [id] , (err, result) => {
-                if(err){
-                    throw(err);
-                }
-                else {
-                    callback(null, result.rows);
-                }
+                if(err)
+                    callback(err, null);                
+                else
+                    callback(null, result.rows);                
             });
         }
     },
