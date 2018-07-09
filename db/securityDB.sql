@@ -1,18 +1,3 @@
-CREATE SCHEMA `securitydb` ;
-
-CREATE TABLE `securitydb`.`users` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(45) NOT NULL,
-  `email` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `email_UNIQUE` (`email` ASC));
-
-INSERT INTO `securitydb`.`users` (`name`, `email`, `password`)
- VALUES ('Marlon Castillo', 'alejo.1395@hotmail.com', '123456');
-
-
- /********************/
 
 -- Database: securitydb
 
@@ -37,16 +22,26 @@ INSERT INTO users (name,email, password)
 VALUES ('Marlon Castillo','alejo.1395@hotmail.com', '123456');
 
 
-create table reports(
-id SERIAL PRIMARY KEY,
-address VARCHAR(45) NOT NULL,
-latitude decimal(11,8) NOT NULL,	
-longitude decimal(11,8) NOT NULL,
-date VARCHAR(45) NOT NULL,
-hour VARCHAR(45) NOT NULL,
-id_user int,
-state bool NOT NULL,
-type int,
-FOREIGN KEY (id_user) REFERENCES users(id)
-);	
-/*1. Robo con arma, 2. Consumo de sustancias psicoactivas 
+CREATE TABLE reports(
+  id SERIAL PRIMARY KEY,
+  address VARCHAR(45) NOT NULL,
+  latitude decimal(11,8) NOT NULL,	
+  longitude decimal(11,8) NOT NULL,
+  date VARCHAR(45) NOT NULL,
+  hour VARCHAR(45) NOT NULL,
+  id_user int,
+  state bool NOT NULL,
+  type int,
+  FOREIGN KEY (id_user) REFERENCES users(id)
+);
+
+/*
+
+1. Robo con arma blanca, 
+2. Robo con arma de fuego,
+3. Robo sin armas,
+4. Consumo de sustancias psicoactivas,
+5. Robo a vehículos
+6. Grupos sospechosos
+
+*/
