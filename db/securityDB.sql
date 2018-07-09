@@ -24,7 +24,7 @@ VALUES ('Marlon Castillo','alejo.1395@hotmail.com', '123456');
 
 CREATE TABLE reports(
   id SERIAL PRIMARY KEY,
-  address VARCHAR(45) NOT NULL,
+  address VARCHAR(100) NOT NULL,
   latitude decimal(11,8) NOT NULL,	
   longitude decimal(11,8) NOT NULL,
   date VARCHAR(45) NOT NULL,
