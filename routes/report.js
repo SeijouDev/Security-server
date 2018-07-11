@@ -38,7 +38,8 @@ router.post('/create', (req, res) => {
         dates: req.body.dates,
         hours: req.body.hours,
         id_user: req.body.id_user,
-        states: req.body.states
+        states: req.body.states,
+        type: req.body.type
     }
 
     Report.insert(report, (err, data) => {

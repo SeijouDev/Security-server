@@ -19,7 +19,7 @@ let reportModel = {
 
     findAll: (callback) => {
         if (client) {
-            client.query('SELECT id, address, latitude, longitude, date, hour, id_user, state FROM reports where state=false;', (err, result) => {
+            client.query('SELECT id, address, latitude, longitude, date, hour, id_user, type, state FROM reports where state=false;', (err, result) => {
                 console.log(client)
                 if (err) {
                     throw (err);
