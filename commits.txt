@@ -1,0 +1,53 @@
+commit f7c7c67b319a1cffaf311bc054021922378e1611
+Author: Nelson Perilla <nelsonperilla@misena.edu.co>
+Date:   Sat Jul 7 19:39:13 2018 -0500
+
+    Add reportEntity and update script db
+
+commit 77b7f3e665def01eafe41b9a694e6515a461ce1b
+Author: nperilla <nperilla22@gmail.com>
+Date:   Thu Jul 5 21:26:15 2018 -0500
+
+    report entity added
+
+commit cf221e888674c6a5ca0721c0cb198b7da7003fc2
+Author: seijoudev <alejo.1395@hotmail.com>
+Date:   Mon Jul 2 19:11:10 2018 -0500
+
+    remove throw err and callback added
+
+commit 80fd9fd0d63f5cc970dd8d4977ec4793e5c8f028
+Author: seijoudev <alejo.1395@hotmail.com>
+Date:   Mon Jul 2 19:05:47 2018 -0500
+
+    user already exists response
+
+commit 72a3b9f8f765afbbc6390c06c05e28478d1c0833
+Author: seijoudev <alejo.1395@hotmail.com>
+Date:   Mon Jul 2 18:50:03 2018 -0500
+
+    login method
+
+commit e72e083a5d54019153932e3bd278e7724e0dc270
+Author: seijoudev <alejo.1395@hotmail.com>
+Date:   Mon Jul 2 01:57:33 2018 -0500
+
+    pg connection fixed
+
+commit 514e792891c05fc44e26153054f1e7f83f0b0e7c
+Author: seijoudev <alejo.1395@hotmail.com>
+Date:   Mon Jul 2 01:13:53 2018 -0500
+
+    mysql to pg
+
+commit 856fffd1498c2a4ec2087caaff93dcb35d97325a
+Author: seijoudev <alejo.1395@hotmail.com>
+Date:   Sun Jul 1 23:03:17 2018 -0500
+
+    First commit
+
+commit b78c03d8e1ace68f8fb9ddc9b07e58bc2a1bba00
+Author: SeijouDev <alejo.1395@hotmail.com>
+Date:   Sun Jul 1 22:59:09 2018 -0500
+
+    Initial commit
